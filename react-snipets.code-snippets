@@ -1,0 +1,74 @@
+{
+  //! Comment ---------------------------------------------------------------------------------------------------------
+  "Comment React": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "cr",
+    "body": ["//Redux hooks", "$1", "//Hooks", "", "//Local state", ""]
+  },
+  "Comment function React": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "cf",
+    "body": ["//* ($1)"]
+  },
+
+  //! Function generating ---------------------------------------------------------------------------------------------------------
+  "React function": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "rf",
+    "body": [
+      "function $1() {",
+      " return (",
+      "   <div>$2</div>",
+      " );",
+      "}",
+
+      "export default $1;"
+    ]
+  },
+  "Function": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "fn",
+    "body": ["function $1() {", "  $2", "};"]
+  },
+  "Arrow function": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "afn",
+    "body": ["const $1 = ($2) => {", "", "}"]
+  },
+  "Generator function": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "gfn",
+    "body": ["function* $1() {", "  $2", "};"]
+  },
+
+  //! Hooks ---------------------------------------------------------------------------------------------------------
+  "useEffect without cleaner": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": "ue",
+    "body": ["useEffect(() => {", "  ", "}, []);"]
+  },
+  "useEffect with cleaner": {
+    "scope": "javascriptreact, typescriptreact, vue",
+    "prefix": "uec",
+    "body": ["useEffect(() => {", "  ", "}, []);"]
+  },
+  
+  //! Styled component ---------------------------------------------------------------------------------------------------------
+  "Style-component with importing": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "istc",
+    "body": [
+      "import styled from 'styled-components';",
+      "",
+      "export const $1 = styled.div`",
+      "  $2;",
+      "`;"
+    ]
+  },
+  "Style-component without importing": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "stc",
+    "body": ["export const $1 = styled.div`", "  $2;", "`;"]
+  },
+
+}

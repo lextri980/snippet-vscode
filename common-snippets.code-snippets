@@ -1,0 +1,47 @@
+{
+  //! Console & Comment ---------------------------------------------------------------------------------------------------------
+  "Print to console": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
+    "prefix": "log",
+    "body": ["console.log($1);"],
+    "description": "Log output to console"
+  },
+  "Highlight comment": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
+    "prefix": "cmt",
+    "body": ["<!--$1-->"],
+    "description": "Log output to console"
+  },
+
+  //! Import & export ---------------------------------------------------------------------------------------------------------
+  "Assign as import": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
+    "prefix": "ias",
+    "body": ["import * as $1 from '$2'"]
+  },
+  "Export default": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
+    "prefix": "ed",
+    "body": ["export default "]
+  },
+
+  //! Local storage ---------------------------------------------------------------------------------------------------------
+  "localStorage getter": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
+    "prefix": "loget",
+    "body": ["localStorage.getItem($1)"],
+    "description": "Get local"
+  },
+  "localStorage setter": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
+    "prefix": "loset",
+    "body": ["localStorage.setItem($1, $2)"],
+    "description": "Set local"
+  },
+  "localStorage remover": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
+    "prefix": "lodel",
+    "body": ["localStorage.removeItem($1)"],
+    "description": "Remove local"
+  }
+}

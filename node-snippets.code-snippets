@@ -1,0 +1,139 @@
+{
+  //! Comment ---------------------------------------------------------------------------------------------------------
+  "Comment child route nodejs": {
+    "scope": "javascript, typescript",
+    "prefix": "ccr",
+    "body": ["//* ($1) /$2 => $3() <$4>"]
+  },
+  "Comment description of controller nodejs": {
+    "scope": "javascript, typescript",
+    "prefix": "cdc",
+    "body": ["//! desc   $1", "//! route  $2", "//! access $3"]
+  },
+
+  //! Use dto utils ---------------------------------------------------------------------------------------------------------
+  "Import dto": {
+    "scope": "javascript, typescript",
+    "prefix": "idto",
+    "body": ["const { dtoSc, dtoFail, dtoServer } = require('../utils/dto');"]
+  },
+
+  "Use dto 200": {
+    "scope": "javascript, typescript",
+    "prefix": "dto2",
+    "body": [
+      "return dtoSc(res, {",
+      "  success: true,",
+      "  message: '$1',",
+      "});"
+    ]
+  },
+
+  "Use dto 400": {
+    "scope": "javascript, typescript",
+    "prefix": "dto4",
+    "body": ["return dtoFail(res, '$1');"]
+  },
+
+  "Use dto 500": {
+    "scope": "javascript, typescript",
+    "prefix": "dto5",
+    "body": ["return dtoServer(res);"]
+  },
+
+  //! Return response ---------------------------------------------------------------------------------------------------------
+  "Return res.status.json": {
+    "scope": "javascript, typescript",
+    "prefix": "rj",
+    "body": [
+      "return res.status($1).json({",
+      "  success: $2,",
+      "  message: '$3',",
+      "});"
+    ]
+  },
+  "Return res.status.json server": {
+    "scope": "javascript, typescript",
+    "prefix": "rjs",
+    "body": [
+      "return res.status(500).json({",
+      "  success: false,",
+      "  message: 'Internal server error',",
+      "});"
+    ]
+  },
+
+  //! Implement model ---------------------------------------------------------------------------------------------------------
+  "Model nodejs": {
+    "scope": "javascript, typescript",
+    "prefix": "model",
+    "body": [
+      "const mongoose = require('mongoose');",
+      "const Schema = mongoose.Schema;",
+      "",
+      "const $1Schema = new Schema({",
+      "",
+      "})",
+      "",
+      "module.exports = mongoose.model('$1', $1Schema);"
+    ]
+  },
+
+  //! Implement route ---------------------------------------------------------------------------------------------------------
+  "Route function": {
+    "scope": "javascript, typescript",
+    "prefix": "routes",
+    "body": [
+      "const $1 = require('')",
+      "",
+      "function route(app) {",
+      "  app.use('', $1)",
+      "}",
+      "",
+      "module.exports = route;"
+    ]
+  },
+
+  "Route child": {
+    "scope": "javascript, typescript",
+    "prefix": "route",
+    "body": [
+      "const express = require('express');",
+      "const router = express.Router();",
+      "",
+      "module.exports = router;"
+    ]
+  },
+
+  //! Implement server.js ---------------------------------------------------------------------------------------------------------
+  "Server js": {
+    "scope": "javascript, typescript",
+    "prefix": "server",
+    "body": [
+      "const express = require('express');",
+      "const app = express();",
+      "const cors = require('cors');",
+      "const route = require('./routes/ROUTES');",
+      "const db = require('./config/connectDB');",
+      "require('dotenv').config();",
+      "const PORT = process.env.PORT || 5000;",
+      "",
+      "//Connect to database",
+      "db.connect();",
+      "",
+      "//Run json in request.http",
+      "app.use(express.json());",
+      "app.use(express.urlencoded({ extended: true }));",
+      "",
+      "//Enable cors",
+      "app.use(cors());",
+      "",
+      "//Routes init",
+      "route(app);",
+      "",
+      "app.listen(PORT, () => {",
+      "  console.log(`Example app listening at http://localhost:${PORT}`);",
+      "});"
+    ]
+  }
+}
