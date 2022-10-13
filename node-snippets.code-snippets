@@ -11,6 +11,15 @@
     "body": ["//! desc   $1", "//! route  $2", "//! access $3"]
   },
 
+  //! Generate funtion ---------------------------------------------------------------------------------------------------------
+  "Async nodejs function": {
+    "scope": "javascript, typescript",
+    "prefix": "nfn",
+    "body": [
+      "const $1 = async (req, res) => {$2}",
+    ]
+  },
+
   //! Use dto utils ---------------------------------------------------------------------------------------------------------
   "Import dto": {
     "scope": "javascript, typescript",
