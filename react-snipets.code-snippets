@@ -67,8 +67,12 @@
   },
   "Style-component without importing": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": "stc",
+    "prefix": "estc",
     "body": ["export const $1 = styled.div`", "  $2;", "`;"]
   },
-
+  "Style-component without importing and exporting": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "stc",
+    "body": ["const $1 = styled.div`", "  $2;", "`;"]
+  },
 }
