@@ -11,6 +11,30 @@
     "body": ["//* ($1)"]
   },
 
+  //! Context API ---------------------------------------------------------------------------------------------------------
+  "Create context": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "contextapi",
+    "body": [
+      "import React, { createContext } from 'react'",
+      "",
+      "export const $1 = createContext()",
+      "",
+      "function $1Provider({children}) {",
+      "",
+      "  const $1Data = {};",
+      "",
+      "  return (",
+      "    <$1.Provider value={$1Data}>",
+      "      {children}",
+      "    </$1.Provider>",
+      "  );",
+      "}",
+      "",
+      "export default $1Provider;"
+    ]
+  },
+
   //! Function generating ---------------------------------------------------------------------------------------------------------
   "React function": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
