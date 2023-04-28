@@ -22,7 +22,12 @@
   "Export default": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
     "prefix": "ed",
-    "body": ["export default "]
+    "body": ["export default $1 = $2 "]
+  },
+  "Export const": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
+    "prefix": "ec",
+    "body": ["export const $1 = $2 "]
   },
 
   //! Local storage ---------------------------------------------------------------------------------------------------------
