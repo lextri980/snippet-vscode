@@ -84,7 +84,7 @@
       "",
       "})",
       "",
-      "module.exports = mongoose.model('$1', $1Schema);"
+      "module.exports = mongoose.model('$1s', $1Schema);"
     ]
   },
 
