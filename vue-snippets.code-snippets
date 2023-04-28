@@ -75,6 +75,12 @@
     "body": ["<template #$1>","  $2","</template>"]
   },
 
+  "init feather icon": {
+    "scope": "javascript, typescript, vue, html",
+    "prefix": "fi",
+    "body": ["<feather-icon icon='TrendingUpIcon' />"]
+  },
+
   //! Vue template generate ------------------------------------------------------------------------------------------------------------------
   "Vue 2 generate": {
     "scope": "javascript, typescript, vue",
@@ -87,7 +93,7 @@
       "<script>",
       "export default {",
       "  name: '$2',",
-      "  props: [],",
+      "  props: {},",
       "  data() {",
       "    return {}",
       "  },",
@@ -95,7 +101,7 @@
       "}",
       "</script>",
       "",
-      "<style scoped></style>"
+      "<style lang='scss' scoped></style>"
     ]
   },
   "Vue 3 generate": {
@@ -109,7 +115,7 @@
       "<script>",
       "export default {",
       "  name: '$2',",
-      "  props: [],",
+      "  props: {},",
       "  setup() {",
       "    return {}",
       "  },",
@@ -117,7 +123,18 @@
       "}",
       "</script>",
       "",
-      "<style scoped></style>"
+      "<style lang='scss' scoped></style>"
+    ]
+  },
+
+  //! Vuex syntax
+  "mapState generate": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "mapstate",
+    "body": [
+      "...mapState({",
+      "  $1: state => state.app.$2",
+      "})",
     ]
   },
 }
