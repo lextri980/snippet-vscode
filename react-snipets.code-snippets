@@ -1,42 +1,94 @@
 {
+  //! API init ---------------------------------------------------------------------------------------------------------
+  "API init": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "api",
+    "body": [
+      "export const $1Api = async ($2) => {",
+      "  return await apiAxios.$3(`$4`, $2);",
+      "}"
+    ]
+  },
   //! Comment ---------------------------------------------------------------------------------------------------------
   "Comment React": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "cr",
-    "body": ["//Redux hooks", "$1", "//Hooks", "", "//Local state", ""]
+    "body": [
+      "//* Redux hooks --------------------------------------------------------------------------------------------",
+      "",
+      "//* Declare global variables -------------------------------------------------------------------------------",
+      "",
+      "//* Local state --------------------------------------------------------------------------------------------",
+      "",
+      "//* Form and validate --------------------------------------------------------------------------------------",
+      "",
+      "//* Hooks --------------------------------------------------------------------------------------------------",
+      "",
+      "//* Effects ------------------------------------------------------------------------------------------------",
+      "",
+      "//* Other --------------------------------------------------------------------------------------------------",
+      "",
+      "//! Condition rendering --------------------------------------------------------------------------------------------------",
+      "",
+      "//!! Return section ------------------------------------------------------------------------------------------------------",
+    ]
+  },
+  "Comment props type": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "prtype",
+    "body": ["//! Props type", "//Require: $1", "//Option: $2", "//Func: $3"]
+  },
+  "Comment section template": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "csec",
+    "body": ["{/* //$1 -------------------------------------- $2 ---------------------------------------------- */}"]
+  },
+  "Comment modal name": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "cmodal",
+    "body": ["{/* //* Modal: $1 ---------------------------------------------- */}"]
   },
   "Comment function React": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "cf",
-    "body": ["//* ($1)"]
+    "body": ["//@ ($1): $2 -------------------------------------------------------"]
+  },
+  "Comment async function React": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "acf",
+    "body": ["//! async ($1): $2 -------------------------------------------------"]
+  },
+  "Comment disable useEffect no-deps error": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "cue",
+    "body": ["//eslint-disable-next-line react-hooks/exhaustive-deps"]
   },
 
-  //! Context API ---------------------------------------------------------------------------------------------------------
-  "Create context": {
+  //! React hook form & Yup validate ---------------------------------------------------------------------------------------------------------
+  "React hook form calling": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": "contextapi",
+    "prefix": "hform",
     "body": [
-      "import React, { createContext } from 'react'",
-      "",
-      "export const $1 = createContext()",
-      "",
-      "function $1Provider({children}) {",
-      "",
-      "  const $1Data = {};",
-      "",
-      "  return (",
-      "    <$1.Provider value={$1Data}>",
-      "      {children}",
-      "    </$1.Provider>",
-      "  );",
-      "}",
-      "",
-      "export default $1Provider;"
+      "const { register, handleSubmit, trigger, resetField, formState: { errors } } = useForm()"
     ]
   },
 
+  "React hook form calling with Yup": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "yform",
+    "body": [
+      "const { register, handleSubmit, trigger, resetField, formState: { errors } } = useForm({ resolver: yupResolver(schema) })"
+    ]
+  },
+
+  "Yup schema calling": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "yupschema",
+    "body": ["const schema = yup.object().shape({})"]
+  },
+
   //! Function generating ---------------------------------------------------------------------------------------------------------
-  "React function": {
+  "React full function": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "rf",
     "body": [
@@ -45,7 +97,6 @@
       "   <div>$2</div>",
       " );",
       "}",
-
       "export default $1;"
     ]
   },
@@ -59,6 +110,11 @@
     "prefix": "afn",
     "body": ["const $1 = ($2) => {", "", "}"]
   },
+  "Async arrow function": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "aafn",
+    "body": ["const $1 = async ($2) => {", "", "}"]
+  },
   "Generator function": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "gfn",
@@ -69,14 +125,142 @@
   "useEffect without cleaner": {
     "scope": "javascriptreact, typescriptreact",
     "prefix": "ue",
-    "body": ["useEffect(() => {", "  ", "}, []);"]
+    "body": [
+      "useEffect(() => {",
+      "  $1",
+      "  //eslint-disable-next-line react-hooks/exhaustive-deps",
+      "}, []);"
+    ]
   },
   "useEffect with cleaner": {
-    "scope": "javascriptreact, typescriptreact, vue",
+    "scope": "javascriptreact, typescriptreact",
     "prefix": "uec",
-    "body": ["useEffect(() => {", "  ", "}, []);"]
+    "body": [
+      "useEffect(() => {",
+      "  $1",
+      "  return () => {}",
+      "  //eslint-disable-next-line react-hooks/exhaustive-deps",
+      "}, []);"
+    ]
   },
-  
+
+  //! Redux ---------------------------------------------------------------------------------------------------------
+  "Init Store": {
+    "scope": "javascriptreact, typescriptreact, javascript, typescript",
+    "prefix": "store",
+    "body": [
+      "import createSagaMiddleware from '@redux-saga/core';",
+      "import { applyMiddleware, legacy_createStore as createStore } from 'redux';",
+      "import { composeWithDevTools } from 'redux-devtools-extension';",
+      "import rootReducer from './reducers/rootReducer';",
+      "import rootSaga from './saga/rootSaga';",
+      "",
+      "const sagaMiddleware = createSagaMiddleware();",
+      "",
+      "const middleware = [sagaMiddleware];",
+      "",
+      "export const store = createStore(",
+      "  rootReducer,",
+      "  composeWithDevTools(applyMiddleware(...middleware))",
+      ");",
+      "",
+      "sagaMiddleware.run(rootSaga);"
+    ]
+  },
+  "Init an action": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": "action",
+    "body": [
+      "export const $1 = ($2) => ({",
+      "  type: $3,",
+      "  payload: $2,",
+      "})"
+    ]
+  },
+  "Init root reducer": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": "rtreducer",
+    "body": [
+      "import { combineReducers } from 'redux';",
+      "import userReducer from './reducer';",
+      "",
+      "const rootReducer = combineReducers({",
+      "  user: userReducer",
+      "})",
+      "",
+      "export default rootReducer;"
+    ]
+  },
+  "Init reducer": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": "reducer",
+    "body": [
+      "const initState = {",
+      "  data: [],",
+      "  loading: false,",
+      "  message: null,",
+      "}",
+      "",
+      "function $1(state = initState, { type, payload }) {",
+      "",
+      "  switch (type) {",
+      "    case 1:",
+      "      return {",
+      "        ...state",
+      "      }",
+      "",
+      "    default:",
+      "      return state",
+      "  }",
+      "}",
+      "",
+      "export default $1"
+    ]
+  },
+  "Init case in reducer": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": "case",
+    "body": ["case $1:", "  return {", "    ...state", "  }"]
+  },
+
+  //! Redux saga ---------------------------------------------------------------------------------------------------------
+  "Init root saga": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": "rtsaga",
+    "body": [
+      "import { all } from 'redux-saga/effects';",
+      "",
+      "function* rootSaga() {",
+      "  yield all([])",
+      "}",
+      "",
+      "export default rootSaga;"
+    ]
+  },
+  "Init saga": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": "saga",
+    "body": [
+      "import { call, delay, fork, put, take, takeEvery, takeLatest } from 'redux-saga/effects';",
+      "",
+      "function* workerSaga() {",
+      "  try {",
+      "    //fetch api here",
+      "  } catch (error) {",
+      "    //handle error",
+      "  }",
+      "}",
+      "",
+      "function* watcherSaga() {",
+      "  yield take('ACTION', workerSaga)",
+      "}",
+      "",
+      "export const fileName = [",
+      "  fork(watcherSaga)",
+      "]"
+    ]
+  },
+
   //! Styled component ---------------------------------------------------------------------------------------------------------
   "Style-component with importing": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
@@ -98,5 +282,5 @@
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "stc",
     "body": ["const $1 = styled.div`", "  $2;", "`;"]
-  },
+  }
 }
