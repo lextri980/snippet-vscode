@@ -25,6 +25,18 @@
     "body": ["export default "]
   },
 
+  //! JS Core
+  "Query selector": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
+    "prefix": "qs",
+    "body": ["document.querySelector('$1')"]
+  },
+  "Query selector all": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
+    "prefix": "qss",
+    "body": ["document.querySelectorAll('$1')"]
+  },
+
   //! Local storage ---------------------------------------------------------------------------------------------------------
   "localStorage getter": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact, vue, html, css",
