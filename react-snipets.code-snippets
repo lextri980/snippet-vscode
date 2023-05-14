@@ -9,6 +9,20 @@
       "}"
     ]
   },
+
+  //! Props type ---------------------------------------------------------------------------------------------------------
+  "Init props type": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": "prtype",
+    "body": [
+      "import PropTypes from 'prop-types';",
+      "",
+      "$1.propTypes = {",
+      "  ",
+      "};"
+    ]
+  },
+
   //! Comment ---------------------------------------------------------------------------------------------------------
   "Comment React": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
@@ -30,33 +44,36 @@
       "",
       "//! Condition rendering --------------------------------------------------------------------------------------------------",
       "",
-      "//!! Return section ------------------------------------------------------------------------------------------------------",
+      "//!! Return section ------------------------------------------------------------------------------------------------------"
     ]
-  },
-  "Comment props type": {
-    "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": "prtype",
-    "body": ["//! Props type", "//Require: $1", "//Option: $2", "//Func: $3"]
   },
   "Comment section template": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "csec",
-    "body": ["{/* //$1 -------------------------------------- $2 ---------------------------------------------- */}"]
+    "body": [
+      "{/* //$1 -------------------------------------- $2 ---------------------------------------------- */}"
+    ]
   },
   "Comment modal name": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "cmodal",
-    "body": ["{/* //* Modal: $1 ---------------------------------------------- */}"]
+    "body": [
+      "{/* //* Modal: $1 ---------------------------------------------- */}"
+    ]
   },
   "Comment function React": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "cf",
-    "body": ["//@ ($1): $2 -------------------------------------------------------"]
+    "body": [
+      "//@ ($1): $2 -------------------------------------------------------"
+    ]
   },
   "Comment async function React": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "acf",
-    "body": ["//! async ($1): $2 -------------------------------------------------"]
+    "body": [
+      "//! async ($1): $2 -------------------------------------------------"
+    ]
   },
   "Comment disable useEffect no-deps error": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
