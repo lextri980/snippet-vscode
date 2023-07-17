@@ -86,7 +86,7 @@
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "hform",
     "body": [
-      "const { register, handleSubmit, trigger, resetField, formState: { errors } } = useForm()"
+      "const { register, control, handleSubmit, trigger, resetField, formState: { errors } } = useForm()"
     ]
   },
 
@@ -94,7 +94,7 @@
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": "yform",
     "body": [
-      "const { register, handleSubmit, trigger, resetField, formState: { errors } } = useForm({ resolver: yupResolver(schema) })"
+      "const { register, control, handleSubmit, trigger, resetField, formState: { errors } } = useForm({ resolver: yupResolver(schema) })"
     ]
   },
 
