@@ -3,26 +3,36 @@
   "Comment method in vue": {
     "scope": "javascript, typescript, vue",
     "prefix": "cv",
-    "body": ["/* <!--@--> ($1): $2 ------------------------------------------------------------------------- */"]
+    "body": [
+      "/* <!--@--> ($1): $2 ------------------------------------------------------------------------- */"
+    ]
   },
   "Comment async method in vue": {
     "scope": "javascript, typescript, vue",
     "prefix": "cav",
-    "body": ["/* <!--!--> Fetch: $1 /$2 ($3) ------------------------------------------------------------------------- */"]
+    "body": [
+      "/* <!--!--> Fetch: $1 /$2 ($3): $4 ------------------------------------------------------------------------- */"
+    ]
   },
-	
+
   //! Function generate in method ------------------------------------------------------------------------------------------------------------------
   "Function in method in vue": {
     "scope": "javascript, typescript, vue, html",
     "prefix": "vf",
-    "body": ["$1($2) {$3},"]
+    "body": [
+      "/* <!--@--> ($1): $2 ------------------------------------------------------------------------- */",
+      "$1($2) {$3},"
+    ]
   },
   "Async function in method in vue": {
     "scope": "javascript, typescript, vue, html",
     "prefix": "vaf",
-    "body": ["async $1($2) {$3},"]
+    "body": [
+      "/* <!--!--> Fetch: $1 /$2 ($3): $4 ------------------------------------------------------------------------- */",
+      "async $1($2) {$3},"
+    ]
   },
-	
+
   //! Methods & Attributes ------------------------------------------------------------------------------------------------------------------
   "Setup method": {
     "scope": "javascript, typescript, vue",
@@ -32,7 +42,7 @@
   "Data method (same setup but v2)": {
     "scope": "javascript, typescript, vue",
     "prefix": "datav",
-    "body": ["data() {", "  return {","    $2","  }", "},"]
+    "body": ["data() {", "  return {", "    $2", "  }", "},"]
   },
   "Component attribute": {
     "scope": "javascript, typescript, vue",
@@ -42,7 +52,7 @@
   "Props attribute": {
     "scope": "javascript, typescript, vue",
     "prefix": "props",
-    "body": ["props: [{", "  '$1'", "}],"]
+    "body": ["props: {", "  '$1'", "},"]
   },
   "Method attribute": {
     "scope": "javascript, typescript, vue",
@@ -67,12 +77,12 @@
       "},"
     ]
   },
-	
+
   //! Template generate ------------------------------------------------------------------------------------------------------------------
   "Template slot in vue": {
     "scope": "javascript, typescript, vue, html",
     "prefix": "tem",
-    "body": ["<template #$1>","  $2","</template>"]
+    "body": ["<template #$1>", "  $2", "</template>"]
   },
 
   "init feather icon": {
@@ -94,6 +104,7 @@
       "export default {",
       "  name: '$2',",
       "  props: {},",
+      "  components: {},",
       "  data() {",
       "    return {}",
       "  },",
@@ -116,6 +127,7 @@
       "export default {",
       "  name: '$2',",
       "  props: {},",
+      "  components: {},",
       "  setup() {",
       "    return {}",
       "  },",
@@ -131,10 +143,6 @@
   "mapState generate": {
     "scope": "javascript, typescript, vue",
     "prefix": "mapstate",
-    "body": [
-      "...mapState({",
-      "  $1: state => state.app.$2",
-      "})",
-    ]
-  },
+    "body": ["...mapState({", "  $1: state => state.app.$2", "})"]
+  }
 }
