@@ -28,8 +28,8 @@
     "scope": "javascript, typescript, vue, html",
     "prefix": "vaf",
     "body": [
-      "/* <!--!--> Fetch: $2 /$3 ($1): $4 ------------------------------------------------------------------------- */",
-      "async $1($5) {$6},"
+      "/* <!--!--> Fetch: $1 /$2 ($3): $4 ------------------------------------------------------------------------- */",
+      "async $3($5) {$6},"
     ]
   },
 
@@ -52,7 +52,7 @@
   "Props attribute": {
     "scope": "javascript, typescript, vue",
     "prefix": "props",
-    "body": ["props: {", "  '$1'", "},"]
+    "body": ["props: [{", "  '$1'", "}],"]
   },
   "Method attribute": {
     "scope": "javascript, typescript, vue",
@@ -94,7 +94,7 @@
   //! Vue template generate ------------------------------------------------------------------------------------------------------------------
   "Vue 2 generate": {
     "scope": "javascript, typescript, vue",
-    "prefix": "vue2",
+    "prefix": "vue",
     "body": [
       "<template>",
       "  <div class='$1-container'></div>",
@@ -104,7 +104,6 @@
       "export default {",
       "  name: '$2',",
       "  props: {},",
-      "  components: {},",
       "  data() {",
       "    return {}",
       "  },",
@@ -117,7 +116,7 @@
   },
   "Vue 3 generate": {
     "scope": "javascript, typescript, vue",
-    "prefix": "vue",
+    "prefix": "vue3",
     "body": [
       "<template>",
       "  <div class='$1-container'></div>",
@@ -127,8 +126,37 @@
       "export default {",
       "  name: '$2',",
       "  props: {},",
-      "  components: {},",
       "  setup() {",
+      "    return {}",
+      "  },",
+      "  methods: {},",
+      "}",
+      "</script>",
+      "",
+      "<style lang='scss' scoped></style>"
+    ]
+  },
+  "Nuxt 2 generate": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "nuxt",
+    "body": [
+      "<template>",
+      "  <div class='$1-container'></div>",
+      "</template>",
+      "",
+      "<script>",
+      "export default {",
+      "  name: '$2',",
+      "  head() {",
+      "    return {",
+      "      title: ''",
+      "    }",
+      "  },",
+      "  layout: 'main',",
+      "  middleware: [],",
+      "  props: {},",
+      "  components: {},",
+      "  data() {",
       "    return {}",
       "  },",
       "  methods: {},",
